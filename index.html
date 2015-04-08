@@ -5,7 +5,20 @@
   <title>Rezzelution</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<body>
+<body ng-controller="MainController as mainCtrl">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Re<b>ZZ</b>elution</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ng-repeat="item in mainCtrl.navElements"
+        ng-class="{active: mainCtrl.isActiveNav(item.name)}">
+        <a href="#" ng-click="mainCtrl.setNav(item.name)">
+          <i class="glyphicon glyphicon-{{item.icon}}"></i> {{item.label}}
+        </a>
+      </li>
+    </ul>
+  </nav>
   <script src="js/vendor/angular.min.js"></script>
   <script src="js/app.js"></script>
 </body>
