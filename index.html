@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Rezzelution</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/rezz.css">
 </head>
 <body ng-controller="MainController as mainCtrl">
   <nav class="navbar navbar-default">
@@ -15,11 +16,20 @@
         ng-class="{active: mainCtrl.isActiveNav(item.name)}">
         <a href="#" ng-click="mainCtrl.setNav(item.name)">
           <i class="glyphicon glyphicon-{{item.icon}}"></i> {{item.label}}
+          <span class="badge">{{mainCtrl.data[item.name].length}}</span>
         </a>
       </li>
     </ul>
   </nav>
+
+  <div ng-switch="mainCtrl.activeNav">
+    <view-games ng-switch-when="games"></view-games>
+    <view-platforms ng-switch-when="platforms"></view-platforms>
+    <view-import-export ng-switch-when="importExport"></view-import-export>
+  </div>
+
   <script src="js/vendor/angular.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/mod/views.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <input type="text" class="form-control rezz-input" placeholder="Name"
+      ng-model="gamesCtrl.add.name" />
+
+    <button class="btn btn-success" ng-click="gamesCtrl.addGame()">
+      <i class="glyphicon glyphicon-plus"></i> Add
+    </button>
+
+    <ul class="list-group">
+      <li ng-repeat="game in mainCtrl.data.games" class="list-group-item">
+        {{game.name}}
+      </li>
+    </ul>
+  </div>
+</div>

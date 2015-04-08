@@ -1,7 +1,9 @@
 (function() {
-  var app = angular.module('rezzelution', []);
+  var app = angular.module('rezzelution', ['rez-views']);
 
   app.controller('MainController', function() {
+    this.addGame = function() {alert();};
+
     this.navElements = [
       {
         icon: 'th-list',
@@ -28,6 +30,11 @@
 
     this.setNav = function(name) {
       this.activeNav = name;
+    };
+
+    this.data = {
+      games: [],
+      platforms: []
     };
   });
 })();
